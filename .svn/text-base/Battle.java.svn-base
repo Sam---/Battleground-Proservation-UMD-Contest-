@@ -1,0 +1,64 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+class SingleBattle {
+    String combatant1;
+    String combatant2;
+    int costOfVictory;
+
+    SingleBattle(String combatant1, String combatant2, int costOfVictory) {
+        this.combatant1 = combatant1;
+        this.combatant2 = combatant2;
+        this.costOfVictory = costOfVictory;
+    }
+}
+
+public class Battle {
+
+    private static int solveBattle(int numCombatants, ArrayList<SingleBattle> pastBattles, String combatant1, String combatant2) {
+
+        /**************************
+         *
+         * Insert your code here.
+         *
+         * The procedure should return 0, if the two combatants need to FIGHT.
+         * If combatant1 defeats combatant2, then return 1, otherwise return 2.
+         *
+         */
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int numCases = sc.nextInt();
+
+        for(int ii = 0; ii < numCases; ii++) {
+
+            int numCombatants = sc.nextInt();
+
+            int numOfBattles = sc.nextInt();
+
+            ArrayList<SingleBattle> pastBattles = new ArrayList<SingleBattle>();
+
+            for (int i=0; i<numOfBattles; i++)
+                pastBattles.add(new SingleBattle(sc.next(), sc.next(), sc.nextInt()));
+
+            /* Read the new battle participants, and call subroutine. */
+            String combatant1 = sc.next();
+            String combatant2 = sc.next();
+            int ret = solveBattle(numCombatants, pastBattles, combatant1, combatant2);
+
+            if (ret == 0) 
+                System.out.println("FIGHT!");
+            else {
+                if (ret == 1)
+                    System.out.println(combatant1);
+                else
+                    System.out.println(combatant2);
+            }
+        }
+    }
+}
